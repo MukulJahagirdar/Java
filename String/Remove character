@@ -1,0 +1,16 @@
+public class Solution {
+
+	public static String removeAllOccurrencesOfChar(String s, char c) {
+
+        String cs="";
+        for(int i=0;i<s.length();i++)
+        {
+            if(s.charAt(i)!=c)
+            {
+                cs+=s.charAt(i);
+            }
+        }
+        return cs;
+
+}
+}
