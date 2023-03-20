@@ -1,0 +1,82 @@
+Merge Sort - Problem Statement
+Send Feedback
+Sort an array A using Merge Sort.
+Change in the input array itself. So no need to return or print anything.
+Input format :
+Line 1 : Integer n i.e. Array size
+Line 2 : Array elements (separated by space)
+Output format :
+Array elements in increasing order (separated by space)
+Constraints :
+1 <= n <= 10^3
+Sample Input 1 :
+6 
+2 6 8 5 4 3
+Sample Output 1 :
+2 3 4 5 6 8
+Sample Input 2 :
+5
+2 1 5 2 3
+Sample Output 2 :
+1 2 2 3 5 
+
+
+
+
+public class solution {
+
+	public static void mergeSort(int[] input){
+	if(input.length<=1){
+            return ;
+        }
+        int []s1=new int[input.length/2]	;
+        int []s2=new int[input.length-s1.length];
+        
+
+        for(int i=0 ; i<s1.length ; i++){
+            s1[i]=input[i];
+        }
+        
+
+        for(int i=s1.length ; i<input.length ; i++){
+            s2[i-input.length/2]=input[i];
+        }
+        mergeSort(s1);
+        mergeSort(s2);
+
+       	merge(s1,s2,input);
+		
+        
+	}
+    public static void merge(int []a,int[]b,int[]arr){
+		int q=0;
+		int w=0;
+		int h=0;
+		while(q<a.length && w<b.length){
+			if(a[q]<b[w]){
+				arr[h]=a[q];
+				q++;
+				h++;
+			}
+			else{
+				arr[h]=b[w];
+				h++;
+				w++;
+			}
+		}
+		if(q<a.length){
+			while(q<a.length){
+				arr[h]=a[q];
+				q++;
+				h++;
+			}
+		}
+		if(w<b.length){
+			while(w<b.length){
+				arr[h]=b[w];
+				w++;
+				h++;
+			}
+		}
+	}
+}
