@@ -1,0 +1,22 @@
+public class Solution {
+	
+	public static String minLengthWord(String input){
+	
+    String[] myWords = input.split(" ");
+    int shortestLength,shortestLocation;
+
+    shortestLength=(myWords[0]).length();
+
+    shortestLocation=0;
+
+    for (int i=1;i<myWords.length;i++) {
+        if ((myWords[i]).length() < shortestLength) {
+            shortestLength=(myWords[i]).length();
+            shortestLocation=i;
+        }
+    }
+    return myWords[shortestLocation];
+		
+
+	}
+}
